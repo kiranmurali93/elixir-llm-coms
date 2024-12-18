@@ -19,7 +19,7 @@ defmodule ShaderBackend.MixProject do
   def application do
     [
       mod: {ShaderBackend.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :httpoison]
     ]
   end
 
@@ -54,7 +54,9 @@ defmodule ShaderBackend.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:httpoison, "~> 1.8"},
+      {:cors_plug, "~> 3.0"}
     ]
   end
 

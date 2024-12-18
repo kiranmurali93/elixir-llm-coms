@@ -23,6 +23,8 @@ defmodule ShaderBackendWeb.Router do
   # Other scopes may use custom stacks.
   scope "/api", ShaderBackendWeb do
     pipe_through :api
+
+    post "/generate-shader", ShaderController, :generate_shader
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

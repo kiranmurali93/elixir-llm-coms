@@ -45,6 +45,11 @@ defmodule ShaderBackendWeb.Endpoint do
     pass: ["*/*"],
     json_decoder: Phoenix.json_library()
 
+  plug CORSPlug,
+    origin: ["http://localhost:3000", "http://localhost:5173"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    headers: ["Content-Type", "Accept"]
+
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
