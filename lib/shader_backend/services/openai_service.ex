@@ -2,9 +2,9 @@ defmodule ShaderBackend.Services.OpenaiService do
   @moduledoc """
   Service for generating shader code using OpenAI API
   """
+  require Logger
+  require System
   alias HTTPoison
-  # Retrieve API key from environment variables
-  @openai_api_key System.get_env("OPENAI_API_KEY")
 
    # Configurable timeout and retry settings
    @default_timeout 60000 # 60 seconds
@@ -16,6 +16,8 @@ defmodule ShaderBackend.Services.OpenaiService do
   """
   def generate_shader(description) do
     timeout =  @default_timeout
+      # Retrieve API key from environment variables
+    openai_api_key = System.get_env("OPENAI_API_KEY")
     # max_retries = Keyword.get(opts, :max_retries, @max_retries)
     # retry_delay = Keyword.get(opts, :retry_delay, @retry_delay)
 
@@ -81,7 +83,7 @@ defmodule ShaderBackend.Services.OpenaiService do
     # Prepare headers
     headers = [
       {"Content-Type", "application/json"},
-      {"Authorization", "Bearer #{@openai_api_key}"}
+      {"Authorization", "Bearer #{openai_api_key}"}
     ]
 
     # Make API call

@@ -46,7 +46,7 @@ defmodule ShaderBackendWeb.Endpoint do
     json_decoder: Phoenix.json_library()
 
   plug CORSPlug,
-    origin: ["http://localhost:3000", "http://localhost:5173"],
+    origin: ["http://localhost:3000", "http://localhost:5173", "https://react-rust-wasm.fly.dev"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     headers: ["Content-Type", "Accept"]
 
